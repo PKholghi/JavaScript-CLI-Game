@@ -2,6 +2,7 @@
   "name": "mazegame",
   "version": "1.0.0",
   "description": "\"A command line maze game\"",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/PKholghi/maze-game/issues"
   },
-  "homepage": "https://github.com/PKholghi/maze-game#readme"
+  "homepage": "https://github.com/PKholghi/maze-game#readme",
+  "devDependencies": {
+    "prompt-sync": "^4.2.0"
+  }
 }

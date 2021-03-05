@@ -1,5 +1,5 @@
 import { Rooms } from "./rooms.js";
-import { monster } from "./monsterClass";
+import { monster } from "./monsterClass.js";
 import { createInterface } from "readline";
 
 const readline = createInterface({
@@ -7,10 +7,17 @@ const readline = createInterface({
   output: process.stdout,
 });
 
+
+const Skeleton=new monster('Skeleton',50,50);
+Skeleton.addAttack('The skeleton bops you with a bone',5);
+Skeleton.addAttack('The skeleton punches you',5);
+Skeleton.addAttack('The skeleton misses',0);
+
+
 const start = new Rooms(`\nYou are a famed treasure hunter in search of the lost treasure of the first Aztec tribe, after many years of searching 
 you find yourself at the entrance of the maze-like tomb of their King, there is a path to the west, east and north but beware the challenges of the maze,
 not all make it out alive. 
-Which way do you go? West/North/East/Exit`, "roomE", null, "roomC", "roomA", () => {console.log("You have chosen the easy way out."); readline.close();}, null, null);
+Which way do you go? West/North/East/Exit`, "roomE", null, "roomC", "roomA", () => {console.log("You have chosen the easy way out."); readline.close();}, null, null, "fight skeleton");
 const end = new Rooms("\nDo you dare enter the maze again? Yes/Exit", null, null, null, null, () => {console.log("You have chosen the easy way out."); readline.close();}, "start", null);
 const roomA = new Rooms(`\nYou head down a dimly lit path and find yourself in what looks like a sacrificial chamber to the Aztec Gods,
 now is no time to pray or sacrifice. 
@@ -42,21 +49,6 @@ const roomK = new Rooms(`\nYou step into the treasure room and find yourself sur
 first person to step foot in here for centuries.
 You have beaten the maze: Leave`, null, null, null, null, null, null, null, "leave")
 
-const someroom = new Rooms()
-
-const Skeleton=new monster('Skeleton',50,50);
-Skeleton.addAttack('The skeleton bops you with a bone',5);
-Skeleton.addAttack('The skeleton punches you',5);
-Skeleton.addAttack('The skeleton misses',0);
-
-const UndeadKing=new monster('Undead King',150,500);
-UndeadKing.addAttack('The undead king throws a fireball',15);
-UndeadKing.addAttack('The undead king throws a fireball... It misses',0);
-UndeadKing.addAttack('The undead king slashes at you with a sword',10);
-UndeadKing.addAttack('The undead king throws you across the room',10)
-
-const heroDamage=15;
-const heroHealth=100;
 
 function startGame() {
     const steps = {
@@ -99,6 +91,8 @@ function startGame() {
         step = steps[currentStep].west;
     } else if (answer === "leave") {
         console.log("you won!")
+    } else if (answer === "fight skeleton") {
+        return Skeleton.fight();
     } else {
         step = steps[currentStep].exit;
     }

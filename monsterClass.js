@@ -58,19 +58,19 @@ export default {monster};
 // Goblin.addAttack('The goblin kicks you',30)
 // Goblin.addAttack('The goblin bites you',25) 
 
-// var heroDamage=2;
-// var heroHealth=100;
+var heroDamage=50;
+var heroHealth=100;
 
 // Goblin.fight();
 
 
 
-const Skeleton=new monster('Skeleton',50,50);
-Skeleton.addAttack('The skeleton bops you with a bone',5);
-Skeleton.addAttack('The skeleton punches you',5);
-Skeleton.addAttack('The skeleton misses',0);
+// const Skeleton=new monster('Skeleton',50,50);
+// Skeleton.addAttack('The skeleton bops you with a bone',5);
+// Skeleton.addAttack('The skeleton punches you',5);
+// Skeleton.addAttack('The skeleton misses',0);
+// // Skeleton.fight()
 
-// Skeleton.fight();
 // const UndeadKing=new monster('Undead King',150,500);
 // UndeadKing.addAttack('The undead king throws a fireball',15);
 // UndeadKing.addAttack('The undead king throws a fireball... It misses',0);

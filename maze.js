@@ -1,6 +1,8 @@
-const { Rooms } = require("./room");
-const rl = require("readline");
-const readline = rl.createInterface({
+import { Rooms } from "./rooms.js";
+
+import { createInterface } from "readline";
+
+const readline = createInterface({
   input: process.stdin,
   output: process.stdout,
 });

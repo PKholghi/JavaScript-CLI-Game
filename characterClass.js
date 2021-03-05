@@ -1,7 +1,8 @@
+import {characterName} from "./inputName.js"
 class Character {
     constructor(name,health) {
 
-        this.name = name;
+        this.name = characterName;
         this.health = health;
         this.kick = []
         this.punch = []
@@ -38,3 +39,8 @@ Jaishal.characterPunch()
 Jaishal.characterReward()
 console.log(Jaishal)
 */
+
+
+let character = new Character('characterName', 100)
+
+console.log(character)

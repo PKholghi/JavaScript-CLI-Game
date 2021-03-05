@@ -1,5 +1,5 @@
 import {characterName} from "./inputName.js"
-class Character {
+ export class Character {
     constructor(name,health) {
 
         this.name = characterName;

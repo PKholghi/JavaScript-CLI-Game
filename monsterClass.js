@@ -1,9 +1,12 @@
 import promptSync from 'prompt-sync';
 let prompt = promptSync({sigint: true});
 
+import {characterName} from "./inputName.js"
+
 export class monster{
-    constructor(name,health,points) {
+    constructor(name,heroname,health,points) {
         this.name=name;
+        this.heroname = characterName
         this.health=health;
         this.points=points;
         this.attacks=[];
@@ -26,14 +29,14 @@ export class monster{
         while (true){
             if (action=='fight'){
                 this.health-=heroDamage;
-                console.log(`\nYou hit the ${this.name} and deal ${heroDamage} damage! The ${this.name} now has ${this.health} health.`); //need to link to character 
+                console.log(`\n${this.heroname} hit the ${this.name} and deal ${heroDamage} damage! The ${this.name} now has ${this.health} health.`); //need to link to character 
             } else if (action=='run away'){
-                console.log('\nYou can\'t run away!'); //Go back to previous room??
+                console.log(`\n ${this.heroname} can\'t run away!`); //Go back to previous room??
             } else {
-                console.log('\nYou can\'t do that!');
+                console.log(`\n${this.heroname}can\'t do that!`);
             }
             if (this.health<=0){
-                console.log(`\nYou defeated the ${this.name}!`);
+                console.log(`\n${this.heroname} defeated the ${this.name}!`);
                 break
             }
             let monsterAttack=this.attack();
@@ -41,7 +44,7 @@ export class monster{
             console.log('\n'+monsterAttack[0]+` You now have ${heroHealth} health.\n`); //need to link to character
             
             if (heroHealth<=0){ //need to link to character
-                console.log('\nYou have been defeated. Game over.');
+                console.log(`\n${this.heroname} have been defeated. Game over.`);
                 break;
             }
 

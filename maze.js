@@ -1,5 +1,6 @@
 import { Rooms } from "./rooms.js";
 import { monster } from "./monsterClass.js";
+import { Character } from "./characterClass.js"
 import { createInterface } from "readline";
 
 const readline = createInterface({
@@ -7,6 +8,7 @@ const readline = createInterface({
   output: process.stdout,
 });
 
+const character = new Character('characterName', 100)
 
 const Skeleton=new monster('Skeleton',50,50);
 Skeleton.addAttack('The skeleton bops you with a bone',5);

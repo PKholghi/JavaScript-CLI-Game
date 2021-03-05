@@ -1,120 +1,39 @@
+const { Rooms } = require("./room");
 const rl = require("readline");
 const readline = rl.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
+const start = new Rooms("Welcome to the maze, you are in room B where to go? west/north/east/exit", "roomE", null, "roomC", "roomA", () => {console.log("Bye then!"); readline.close();}, null, null);
+const end = new Rooms("Do you want to play again? Yes/Exit", null, null, null, null, () => {console.log("Bye then!"); readline.close();}, "start", null);
+const roomA = new Rooms("This is room A north/east/exit", "roomD", null, "start", null, () => {console.log("Bye then!"); readline.close();}, null, null);
+const roomC = new Rooms("You have entered room C: North/West/Exit", "roomF", null, null, "start", () => {console.log("Bye then!"); readline.close();}, null, null);
+const roomD = new Rooms("This is room D north/east/south/exit", "roomG", "roomA", "roomE", null, () => {console.log("Bye then!"); readline.close();}, null, null);
+const roomE = new Rooms("You have entered room E: West/East/South/Exit", null, "start", "roomF", "roomD", () => {console.log("Bye then!"); readline.close();}, null, null);
+const roomF = new Rooms("You have entered room F: South/West/Exit", null, "roomC", null, "roomE", () => {console.log("Bye then!"); readline.close();}, null, null);
+const roomG = new Rooms("You have entered room G: North/South/Exit", "roomH", "roomD", null, null, () => {console.log("Bye then!"); readline.close();}, null, null);
+const roomH = new Rooms("You have entered room H: South/East/Exit", null, "roomG", "roomI", null, () => {console.log("Bye then!"); readline.close();}, null, null);
+const roomI = new Rooms("You have entered room I: West/East/Exit", null, null, "roomJ", "roomH", () => {console.log("Bye then!"); readline.close();}, null, null);
+const roomJ = new Rooms("You have entered room J: West/East/Exit", null, null, "roomK", "roomI", () => {console.log("Bye then!"); readline.close();}, null, null);
+const roomK = new Rooms("You have entered room K: Leave", null, null, null, null, null, null, null, "leave")
+
+
 
 function startGame() {
     const steps = {
-        start: {
-            message: "Welcome to the maze, you are in room B where to go? west/north/east/exit",
-            north: "roomE",
-            east: "roomC",
-            west: "roomA",
-            exit: () => {
-                console.log("Bye then!");
-                readline.close();
-                },
-        },
-        end: {
-            message: "Do you want to play again? yes/exit",
-            yes: "start",
-            exit: () => {
-                console.log("Bye then!");
-                readline.close();
-                },
-        },
-        roomE: {
-            message: "You have entered room E: west/east/south/exit",
-            west: "roomD",
-            east: "roomF",
-            south: "start",
-            exit: () => {
-                console.log("Bye then!");
-                readline.close();
-                },
-        },
-        roomC: {
-            message: "You have entered room C: north/west/exit",
-            north: "roomF",
-            west: "start",
-            exit: () => {
-                console.log("Bye then!");
-                readline.close();
-                },
-        },
-        roomA: {
-            message: "YOu have entered room A: east/north/exit",
-            north: "roomD",
-            east: "start",
-            exit: () => {
-                console.log("Bye then!");
-                readline.close();
-                },
-        },
-        roomF: {
-            message: "You have entered room F: south/west/exit",
-            south: "roomC",
-            west: "roomE",
-            exit: () => {
-                console.log("Bye then!");
-                readline.close();
-                },
-        },
-        roomD: {
-            message: "You have entered room D: north/south/east/exit",
-            north: "roomG",
-            east: "roomE",
-            south: "roomA",
-            exit: () => {
-                console.log("Bye then!");
-                readline.close();
-                },
-        },
-        roomG: {
-            message: "You have entered room G: north/south/exit",
-            north: "roomH",
-            south: "roomD",
-            exit: () => {
-                console.log("Bye then!");
-                readline.close();
-                },
-        },
-        roomH: {
-            message: "You have entered room H: south/east/exit",
-            east: "roomI",
-            south: "roomG",
-            exit: () => {
-                console.log("Bye then!");
-                readline.close();
-                },
-        },
-        roomI: {
-            message: "You have entered room I: west/east/exit",
-            west: "roomH",
-            east: "roomJ",
-            exit: () => {
-                console.log("Bye then!");
-                readline.close();
-                },
-        },
-        roomJ: {
-            message: "You have entered room J: west/east/exit",
-            west: "roomI",
-            east: "roomK",
-            exit: () => {
-                console.log("Bye then!");
-                readline.close();
-                },
-        },
-        roomK: {
-            message: "You have entered room K: leave",
-            exit: () => {
-                console.log("Bye then!");
-                readline.close();
-                },
-        }
+      start,
+      end,
+      roomE,
+      roomC,
+      roomA, 
+      roomF,
+      roomD,
+      roomG,
+      roomH,
+      roomI,
+      roomJ,
+      roomK
   };
 
   let currentStep = "start";

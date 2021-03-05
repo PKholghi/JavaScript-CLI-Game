@@ -1,7 +1,7 @@
 import promptSync from 'prompt-sync';
 let prompt = promptSync({sigint: true});
 
-class monster{
+export class monster{
     constructor(name,health,points) {
         this.name=name;
         this.health=health;
@@ -50,31 +50,33 @@ class monster{
     }
 }
 
+export default {monster};
 
 //Goblin Example
-var Goblin=new monster('Goblin',30,100);
-Goblin.addAttack('The goblin punches you',20);
-Goblin.addAttack('The goblin kicks you',30)
-Goblin.addAttack('The goblin bites you',25) 
+// const Goblin=new monster('Goblin',30,100);
+// Goblin.addAttack('The goblin punches you',20);
+// Goblin.addAttack('The goblin kicks you',30)
+// Goblin.addAttack('The goblin bites you',25) 
 
-var heroDamage=2;
-var heroHealth=100;
+// var heroDamage=2;
+// var heroHealth=100;
 
-Goblin.fight();
+// Goblin.fight();
 
 
-/*
-var Skeleton=new monster('Skeleton',50,50);
+
+const Skeleton=new monster('Skeleton',50,50);
 Skeleton.addAttack('The skeleton bops you with a bone',5);
 Skeleton.addAttack('The skeleton punches you',5);
 Skeleton.addAttack('The skeleton misses',0);
 
-var UndeadKing=new monster('Undead King',150,500);
-UndeadKing.addAttack('The undead king throws a fireball',15);
-UndeadKing.addAttack('The undead king throws a fireball... It misses',0);
-UndeadKing.addAttack('The undead king slashes at you with a sword',10);
-UndeadKing.addAttack('The undead king throws you across the room',10);
-*/
+// Skeleton.fight();
+// const UndeadKing=new monster('Undead King',150,500);
+// UndeadKing.addAttack('The undead king throws a fireball',15);
+// UndeadKing.addAttack('The undead king throws a fireball... It misses',0);
+// UndeadKing.addAttack('The undead king slashes at you with a sword',10);
+// UndeadKing.addAttack('The undead king throws you across the room',10);
+
 
 
 

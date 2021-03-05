@@ -1,5 +1,5 @@
 import { Rooms } from "./rooms.js";
-
+import { monster } from "./monsterClass";
 import { createInterface } from "readline";
 
 const readline = createInterface({
@@ -42,7 +42,21 @@ const roomK = new Rooms(`\nYou step into the treasure room and find yourself sur
 first person to step foot in here for centuries.
 You have beaten the maze: Leave`, null, null, null, null, null, null, null, "leave")
 
+const someroom = new Rooms()
 
+const Skeleton=new monster('Skeleton',50,50);
+Skeleton.addAttack('The skeleton bops you with a bone',5);
+Skeleton.addAttack('The skeleton punches you',5);
+Skeleton.addAttack('The skeleton misses',0);
+
+const UndeadKing=new monster('Undead King',150,500);
+UndeadKing.addAttack('The undead king throws a fireball',15);
+UndeadKing.addAttack('The undead king throws a fireball... It misses',0);
+UndeadKing.addAttack('The undead king slashes at you with a sword',10);
+UndeadKing.addAttack('The undead king throws you across the room',10)
+
+const heroDamage=15;
+const heroHealth=100;
 
 function startGame() {
     const steps = {

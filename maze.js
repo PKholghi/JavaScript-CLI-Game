@@ -96,7 +96,8 @@ function startGame() {
       roomK,
       skeleC,
       templeE,
-      necroA
+      necroA,
+      kingJ
   };
 
   let currentStep = "start";

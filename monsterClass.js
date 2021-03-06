@@ -1,6 +1,5 @@
 import promptSync from 'prompt-sync';
 let prompt = promptSync({sigint: true});
-
 import {characterName} from "./inputName.js"
 
 export class monster{
@@ -33,7 +32,7 @@ export class monster{
             } else if (action=='run away'){
                 console.log(`\n ${this.heroname} can\'t run away!`); //Go back to previous room??
             } else {
-                console.log(`\n${this.heroname}can\'t do that!`);
+                console.log(`\n${this.heroname} can\'t do that!`);
             }
             if (this.health<=0){
                 console.log(`\n${this.heroname} defeated the ${this.name}!`);
@@ -44,7 +43,8 @@ export class monster{
             console.log('\n'+monsterAttack[0]+` You now have ${heroHealth} health.\n`); //need to link to character
             
             if (heroHealth<=0){ //need to link to character
-                console.log(`\n${this.heroname} have been defeated. Game over.`);
+                console.log(`\n${this.heroname} have been defeated. Game over.`)
+                step = "end";
                 break;
             }
 

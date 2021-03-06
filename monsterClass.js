@@ -61,7 +61,7 @@ export default {monster};
 // Goblin.addAttack('The goblin kicks you',30)
 // Goblin.addAttack('The goblin bites you',25) 
 
-var heroDamage=50;
+var heroDamage=20;
 var heroHealth=100;
 
 // Goblin.fight();

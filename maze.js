@@ -10,8 +10,6 @@ const readline = createInterface({
   output: process.stdout,
 });
 
-const character = new Character('characterName', 100)
-
 const Skeleton=new monster('Skeleton',50,50);
 Skeleton.addAttack('The skeleton bops you with a bone',10);
 Skeleton.addAttack('The skeleton punches you',10);
@@ -58,7 +56,7 @@ ahead of you stands a tall statue of the Aztec King, you notice something skulki
 Which way do you go? West/East/South/Exit`, null, "start", "roomF", "roomD", () => {console.log("You have chosen the easy way out."); readline.close();}, null, null);
 const roomF = new Rooms(`\nThere is nothing in this room, just a cauldron where witches often come to make their incantations and elixirs
 and several torches on the walls. 
-Which way do you go? West/East/South/Exit`, null, "skeleC", null, "templeE", () => {console.log("You have chosen the easy way out."); readline.close();}, null, null);
+Which way do you go? West/South/Exit`, null, "skeleC", null, "templeE", () => {console.log("You have chosen the easy way out."); readline.close();}, null, null);
 const roomG = new Rooms(`\nAhead of you stands an old broken bridge, the path seems toilsome and there is a steep drop beneath you but you are sure this leads
 to the centre of the tomb, do you dare head north across the bridge?
 Which way do you go? North/South/Exit`, "roomH", "roomD", null, null, () => {console.log("You have chosen the easy way out."); readline.close();}, null, null);
@@ -137,8 +135,13 @@ function startGame() {
     } else if (answer === "fight mage") {
         Necromage.fight();
         step = "roomA"
-    } else {
+    } else if (answer === "exit") {
         step = steps[currentStep].exit;
+    } else if (answer === "yes") {
+        step = steps[currentStep].yes;
+    } else {
+        console.log(`\nPlease type a valid response`);
+        step = currentStep;
     }
 
     if (typeof step === "function") {

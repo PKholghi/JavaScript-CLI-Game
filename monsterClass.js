@@ -62,7 +62,7 @@ export default {monster};
 // Goblin.addAttack('The goblin bites you',25) 
 
 var heroDamage=20;
-var heroHealth=100;
+var heroHealth=200;
 
 // Goblin.fight();
 
